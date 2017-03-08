@@ -1,0 +1,41 @@
+<!--CONFIG_START//-->
+
+; Some possible config settings
+; alias OR aid=ArticleID OR id=CatID
+; logout_id_or_alias =
+
+<!--CONFIG_END//-->
+
+// Login
+<!--NOT_PERMITTED_START//-->
+	<form action="{feuserpermit_action}" method="post" autocomplete="off">
+[ERROR]
+		<p>Ein Fehler ist aufgetreten. {ERROR}</p>
+[/ERROR]
+		<div[ERROR:LOGIN] class="error"[/ERROR:LOGIN]>
+			<label>Benutzername</label>
+			<input type="text" name="feuserpermit_login" value="{feuserpermit_login}" placeholder="Login eingeben" class="feuserpermit login" size="40" maxlength="50" />
+			[ERROR:LOGIN]<span class="help-block">{ERROR:LOGIN}</span>[/ERROR:LOGIN]
+		</div>
+		<div[ERROR:PASSWORD] class="error"[/ERROR:PASSWORD]>
+			<label>Passwort</label>
+			<input type="password" name="feuserpermit_pwd" placeholder="Passwort eingeben" class="feuserpermit password" size="40" maxlength="50" />
+			[ERROR:PASSWORD]<span class="help-block">{ERROR:PASSWORD}</span>[/ERROR:PASSWORD]
+		</div>
+		<div>
+			<input type="submit" value="Anmelden" class="feuserpermit btn btn-primary" />
+		</div>
+	</form>
+<!--NOT_PERMITTED_END//-->
+
+
+// Logout
+<!--IS_PERMITTED_START//-->
+	<form action="{feuserpermit_action}" method="post">
+		<div>
+			<input type="hidden" name="feuserpermit_logout" value="1" />
+			<input type="submit" value="Abmelden" class="feuserpermit btn btn-primary" />
+		</div>
+	</form>
+	<!-- <a href="{feuserpermit_action}">Abmelden</a> -->
+<!--IS_PERMITTED_END//-->
